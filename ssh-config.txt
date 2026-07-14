@@ -1,0 +1,7 @@
+# Week 2 EC2 Instance
+Host bootcamp-web
+    HostName 13.50.170.34
+    User ec2-user
+    IdentityFile ~/.ssh/bootcamp-week2-key.pem
+    ServerAliveInterval 60
+    ServerAliveCountMax 3

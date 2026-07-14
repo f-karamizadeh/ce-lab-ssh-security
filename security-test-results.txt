@@ -1,0 +1,9 @@
+#Port test
+fkara@BOOK-G10VPP3E38:/mnt/c/users/fkara/.ssh$ telnet 13.53.175.34 3306
+Trying 13.53.175.34...
+telnet: Unable to connect to remote host: Connection timed out
+
+#HTTPS test
+fkara@BOOK-G10VPP3E38:/mnt/c/users/fkara/.ssh$ curl -I https://13.53.175.34
+curl: (7) Failed to connect to 13.53.175.34 port 443 after 41 ms: Couldn't connect to server
+

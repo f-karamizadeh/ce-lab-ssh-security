@@ -1,0 +1,19 @@
+
+# ssh config audit
+
+[ec2-user@ip-172-31-33-181 ~]$ sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.backup
+[ec2-user@ip-172-31-33-181 ~]$ sudo cat /etc/ssh/sshd_config | grep -v "^#" | grep -v "^$"
+Include /etc/ssh/sshd_config.d/*.conf
+AuthorizedKeysFile      .ssh/authorized_keys
+PasswordAuthentication no
+PermitEmptyPasswords no
+Subsystem       sftp    /usr/libexec/openssh/sftp-server
+AuthorizedKeysCommand /opt/aws/bin/eic_run_authorized_keys %u %f
+AuthorizedKeysCommandUser ec2-instance-connect
+[ec2-user@ip-172-31-33-181 ~]$ sudo sshd -T | grep -i passwordauthentication
+passwordauthentication no
+[ec2-user@ip-172-31-33-181 ~]$ sudo sshd -T | grep -i permitrootlogin
+permitrootlogin without-password
+[ec2-user@ip-172-31-33-181 ~]$ sudo sshd -T | grep -i pubkeyauthentication
+pubkeyauthentication yes
+[ec2-user@ip-172-31-33-181 ~]$

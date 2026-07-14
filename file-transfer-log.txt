@@ -1,0 +1,17 @@
+# Practice SCP (Secure Copy)
+# Copy TO Instance
+$ scp test-file.txt bootcamp-web:~/
+test-file.txt                                 100%   24     0.6KB/s   00:00
+
+# Copy FROM Instance
+fkara@BOOK-G10VPP3E38 CLANGARM64 ~
+$  scp bootcamp-web:~/instance-info.txt ./downloaded-info.txt
+instance-info.txt                             100% 2045    30.6KB/s   00:00
+
+
+# Copy Directory
+fkara@BOOK-G10VPP3E38 CLANGARM64 ~
+$ scp -r my-website bootcamp-web:~/
+index.html                                    100%   17     0.5KB/s   00:00
+style.css                                     100%   32     0.9KB/s   00:00
+
